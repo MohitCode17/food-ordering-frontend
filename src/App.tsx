@@ -1,11 +1,29 @@
-import { Button } from "./components/ui/button";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Layout from "./layout/Layout";
 
 const App = () => {
   return (
-    <>
-      <div className="bg-green-600 text-white">FlavorWave.com</div>
-      <Button className="m-2">Click me</Button>
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Layout>
+            <p>Home Page</p>
+          </Layout>
+        }
+      />
+
+      <Route
+        path="/user-profile"
+        element={
+          <Layout>
+            <p>User Profile</p>
+          </Layout>
+        }
+      />
+
+      <Route path="*" element={<Navigate to={"/"} />} />
+    </Routes>
   );
 };
 
