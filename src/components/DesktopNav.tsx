@@ -16,7 +16,7 @@ const DesktopNav = () => {
       ) : (
         <Button
           variant={"ghost"}
-          className="bg-[#c9161c] hover:bg-red-500 text-white hover:text-white font-bold"
+          className="bg-primaryColor hover:bg-red-500 text-white hover:text-white font-bold"
         >
           Sign In
         </Button>

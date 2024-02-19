@@ -24,7 +24,7 @@ const MobileNav = () => {
         <SheetTitle>
           {isAuthenticated ? (
             <span className="flex items-center gap-2">
-              <CircleUserRound className="text-[#c9161c]" />
+              <CircleUserRound className="text-primaryColor" />
               {/* User email */}
               {user}
             </span>
@@ -37,7 +37,7 @@ const MobileNav = () => {
           {isAuthenticated ? (
             <MobileNavLinks />
           ) : (
-            <Button className="bg-[#c9161c] hover:bg-red-500 text-white hover:text-white font-bold">
+            <Button className="bg-primaryColor hover:bg-red-500 text-white hover:text-white font-bold">
               Sign In
             </Button>
           )}

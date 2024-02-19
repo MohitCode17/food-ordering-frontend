@@ -4,10 +4,10 @@ import MobileNav from "./MobileNav";
 
 const Header = () => {
   return (
-    <div className="border-b border-b-[#c9161c] py-6">
+    <div className="border-b border-b-primaryColor py-6">
       <div className="container mx-auto flex justify-between items-center">
         <Link to={"/"} className="text-2xl sm:text-3xl font-bold">
-          <span className="text-[#c9162c]">Flavor</span>
+          <span className="text-primaryColor">Flavor</span>
           Bite
         </Link>
 
