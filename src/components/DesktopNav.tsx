@@ -4,8 +4,7 @@ import UserMenu from "./UserMenu";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const DesktopNav = () => {
-  const isAuthenticated = false;
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
 
   return (
     <span className="flex space-x-2 items-center">
