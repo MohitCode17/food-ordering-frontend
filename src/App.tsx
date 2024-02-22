@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import AuthCallbackPage from "./pages/AuthCallbackPage";
+import UserProfilePage from "./pages/UserProfilePage";
 
 const App = () => {
   return (
@@ -9,7 +10,7 @@ const App = () => {
       <Route
         path="/"
         element={
-          <Layout>
+          <Layout showHero>
             <Home />
           </Layout>
         }
@@ -19,7 +20,7 @@ const App = () => {
         path="/user-profile"
         element={
           <Layout>
-            <p>User Profile</p>
+            <UserProfilePage />
           </Layout>
         }
       />
