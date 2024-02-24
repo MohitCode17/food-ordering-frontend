@@ -3,6 +3,7 @@ import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import AuthCallbackPage from "./pages/AuthCallbackPage";
 import UserProfilePage from "./pages/UserProfilePage";
+import ProtectedRoute from "./auth/ProtectedRoute";
 
 const App = () => {
   return (
@@ -16,14 +17,16 @@ const App = () => {
         }
       />
 
-      <Route
-        path="/user-profile"
-        element={
-          <Layout>
-            <UserProfilePage />
-          </Layout>
-        }
-      />
+      <Route element={<ProtectedRoute />}>
+        <Route
+          path="/user-profile"
+          element={
+            <Layout>
+              <UserProfilePage />
+            </Layout>
+          }
+        />
+      </Route>
       <Route path="/auth-callback" element={<AuthCallbackPage />} />
       <Route path="*" element={<Navigate to={"/"} />} />
     </Routes>
