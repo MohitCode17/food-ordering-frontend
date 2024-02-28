@@ -9,6 +9,8 @@ import ImageSection from "./ImageSection";
 import MenuSection from "./MenuSection";
 import { Button } from "@/components/ui/button";
 import LoadingButton from "@/components/LoadingButton";
+import { Restaurant } from "@/types";
+import { useEffect } from "react";
 
 // Create form Schema
 const formSchema = z.object({
@@ -39,16 +41,18 @@ const formSchema = z.object({
     })
   ),
   imageFile: z.instanceof(File, { message: "image is required" }).optional(),
+  imageUrl: z.string().optional(),
 });
 
 type RestaurantFormData = z.infer<typeof formSchema>;
 
 type Props = {
+  restaurantData?: Restaurant;
   onSave: (restaurantFormData: FormData) => void;
   isLoading: boolean;
 };
 
-const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
+const ManageRestaurantForm = ({ onSave, isLoading, restaurantData }: Props) => {
   const form = useForm<RestaurantFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,6 +60,15 @@ const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
       menuItems: [{ name: "", price: 0 }],
     },
   });
+
+  // Pre-populated restaurant data for restaurant form
+  useEffect(() => {
+    if (!restaurantData) {
+      return;
+    }
+
+    form.reset(restaurantData);
+  }, [form, restaurantData]);
 
   const onSubmit = (formDataJson: RestaurantFormData) => {
     const formData = new FormData();
